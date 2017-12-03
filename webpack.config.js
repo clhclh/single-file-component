@@ -3,7 +3,7 @@ var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, "src/index.js"),
+    entry: path.join(__dirname, "src/main.js"),
     output: {
         path: path.join(__dirname, "dist"),
         filename: "bundle.js"
@@ -53,6 +53,10 @@ module.exports = {
                 //如果匹配到的.js文件是 node_modules里面的内容，那就不做处理！
                 exclude: /node_modules/,
                 use: ["babel-loader"]
+            },
+            {
+                test: /\.vue$/,
+                use: ["vue-loader"]
             }
         ]
     },
